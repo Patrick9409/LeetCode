@@ -1,0 +1,23 @@
+/**ZigZag Conversion**/
+public class TextForLeetcode{
+	public static void main(String args[]){
+		String strEg = "abcdcbabcdcbabcdcbabcdcbabcdc";
+		int nRows = 4;
+		//String[] stringArray = new String[strEg.length()];
+		String rightOrder = "";
+		int numberAmountOfOneGroup = 2 * nRows - 2;
+		for(int i = 0; i < nRows; i ++) {
+			for(int j = i; j < strEg.length(); j += numberAmountOfOneGroup) {
+				
+				rightOrder += strEg.charAt(j);
+				
+				if(i > 0 && i < nRows - 1) {
+					if((j +(2 * nRows - 2) - 2 * i) < strEg.length()) {
+						rightOrder += strEg.charAt(j + (2 * nRows - 2) - (2 * i));
+					}
+				}
+			}
+		}
+		System.out.println(rightOrder);
+	}
+}
